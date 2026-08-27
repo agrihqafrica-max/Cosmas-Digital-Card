@@ -1,1 +1,22 @@
+functions/contact.vcf.js
 
+export async function onRequest() {
+  const vcard = [
+    "BEGIN:VCARD",
+    "VERSION:3.0",
+    "FN:Cosmas T. Mwangi",
+    "N:Mwangi;Cosmas T.;;;",
+    "TEL;TYPE=CELL:+254725687559",
+    "EMAIL;TYPE=INTERNET:hakinavigator@gmail.com",
+    "END:VCARD"
+  ].join("\r\n") + "\r\n";
+
+  return new Response(vcard, {
+    status: 200,
+    headers: {
+      "Content-Type": "text/vcard; charset=utf-8",
+      "Content-Disposition": "inline",
+      "Cache-Control": "no-store"
+    }
+  });
+}
