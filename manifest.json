@@ -1,0 +1,17 @@
+{
+  "name": "Haki Navigator QR",
+  "short_name": "Haki QR",
+  "start_url": "./qr.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#071f49",
+  "description": "Haki Navigator branded QR code",
+  "icons": [
+    {
+      "src": "HakiLogo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
