@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
+
+  <meta name="theme-color" content="#071f49">
+
+  <meta
+    name="apple-mobile-web-app-capable"
+    content="yes"
+  >
+
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent"
+  >
+
+  <meta
+    name="apple-mobile-web-app-title"
+    content="Haki Navigator QR"
+  >
+
+  <link rel="manifest" href="manifest.json">
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="HakiLogo.png"
+  >
+
+  <link
+    rel="apple-touch-icon"
+    href="HakiLogo.png"
+  >
+
+  <title>Haki Navigator QR</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #071f49;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .screen {
+      width: 100%;
+      height: 100%;
+      min-height: 100vh;
+      min-height: 100dvh;
+
+      background: white;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      padding:
+        max(18px, env(safe-area-inset-top))
+        18px
+        max(18px, env(safe-area-inset-bottom));
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+      margin-bottom: 16px;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+    }
+
+    .brand-text {
+      color: #071f49;
+      font-size: 20px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .qr-frame {
+      width: min(88vw, 520px);
+      height: min(88vw, 520px);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: white;
+
+      border-radius: 22px;
+
+      padding: 10px;
+
+      box-shadow:
+        0 8px 30px rgba(7, 31, 73, 0.14);
+    }
+
+    .qr {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .instruction {
+      margin-top: 18px;
+
+      color: #071f49;
+
+      font-size: 16px;
+      font-weight: 600;
+
+      text-align: center;
+
+      white-space: nowrap;
+    }
+
+    .green-line {
+      width: 90px;
+      height: 3px;
+
+      background: #35a853;
+
+      margin-top: 12px;
+      border-radius: 3px;
+    }
+
+    @media (max-width: 430px) {
+
+      .brand {
+        margin-bottom: 12px;
+      }
+
+      .brand img {
+        width: 34px;
+        height: 34px;
+      }
+
+      .brand-text {
+        font-size: 17px;
+      }
+
+      .qr-frame {
+        width: 92vw;
+        height: 92vw;
+        padding: 7px;
+        border-radius: 18px;
+      }
+
+      .instruction {
+        font-size: 14px;
+        margin-top: 13px;
+      }
+
+      .green-line {
+        margin-top: 8px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="screen">
+
+    <div class="brand">
+      <img
+        src="HakiLogo.png"
+        alt="Haki Navigator"
+      >
+
+      <div class="brand-text">
+        Haki Navigator QR
+      </div>
+    </div>
+
+    <div class="qr-frame">
+      <img
+        class="qr"
+        src="Cosmas%20Mwangi.png"
+        alt="Haki Navigator QR Code"
+      >
+    </div>
+
+    <div class="instruction">
+      Scan to open the Haki Navigator Digital Card
+    </div>
+
+    <div class="green-line"></div>
+
+  </main>
+
+</body>
+</html>
