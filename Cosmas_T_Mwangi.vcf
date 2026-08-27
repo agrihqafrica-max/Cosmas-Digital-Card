@@ -1,13 +1,7 @@
 BEGIN:VCARD
 VERSION:3.0
-N:;Cosmas T. Mwangi;;;
 FN:Cosmas T. Mwangi
-ORG:Haki Navigator Technologies
-TITLE:Founder & Director
-TEL;TYPE=CELL,VOICE:+254725687559
+N:Mwangi;Cosmas T.;;;
+TEL;TYPE=CELL:+254725687559
 EMAIL;TYPE=INTERNET:hakinavigator@gmail.com
-URL:https://hakinavigator.com
-X-SOCIALPROFILE;TYPE=linkedin:https://linkedin.com/company/hakinavigator
-X-SOCIALPROFILE;TYPE=x:https://x.com/hakinavigator
-X-SOCIALPROFILE;TYPE=youtube:https://www.youtube.com/@hakinavigator
 END:VCARD
