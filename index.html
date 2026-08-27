@@ -558,7 +558,8 @@
     <!-- SAVE CONTACT -->
     <a
       class="save-contact"
-      href="Cosmas_T_Mwangi.vcf"
+      id="saveContactBtn"
+      href="#"
     >
       <span class="contact-icon"></span>
       <span>SAVE CONTACT</span>
@@ -704,6 +705,36 @@
     </p>
 
   </main>
+
+  <script>
+    // Fetch the vCard file and prepare it for cross-platform vCard handling
+    document.getElementById('saveContactBtn').addEventListener('click', async function(e) {
+      e.preventDefault();
+      
+      try {
+        // Fetch the vCard file
+        const response = await fetch('Cosmas_T_Mwangi.vcf');
+        if (!response.ok) {
+          throw new Error('Failed to load vCard');
+        }
+        const vcardContent = await response.text();
+        
+        // Create a data URI with text/vcard MIME type
+        const dataUri = 'data:text/vcard;charset=utf-8,' + encodeURIComponent(vcardContent);
+        
+        // Create and trigger download with proper filename
+        const link = document.createElement('a');
+        link.href = dataUri;
+        link.download = 'Cosmas_T_Mwangi.vcf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      } catch (error) {
+        console.error('Error handling vCard:', error);
+        alert('Unable to load contact. Please try again.');
+      }
+    });
+  </script>
 
 </body>
 </html>
