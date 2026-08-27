@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Haki Navigator Contact</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f3f5f7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .message {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      max-width: 400px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      color: #071f49;
+      margin-top: 0;
+    }
+    p {
+      color: #17243a;
+      line-height: 1.6;
+      margin: 15px 0;
+    }
+    .button {
+      display: inline-block;
+      background: #35a853;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="message">
+    <h1>Adding Contact...</h1>
+    <p>Your phone is being asked to add Cosmas T. Mwangi to your contacts.</p>
+    <p id="status">Processing...</p>
+    <a href="javascript:history.back()" class="button">Go Back</a>
+  </div>
+
+  <script>
+    // Read the vCard content from URL parameter
+    const params = new URLSearchParams(window.location.search);
+    const vcardData = params.get('data');
+    
+    if (vcardData) {
+      // Decode the vCard data
+      const decodedVCard = decodeURIComponent(vcardData);
+      
+      // Create a data URI with text/vcard MIME type
+      const dataUri = 'data:text/vcard;charset=utf-8,' + encodeURIComponent(decodedVCard);
+      
+      // Trigger download with a proper filename
+      const link = document.createElement('a');
+      link.href = dataUri;
+      link.download = 'Cosmas_T_Mwangi.vcf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      // Update status message
+      document.getElementById('status').textContent = 'Contact file is ready. Your phone should open the Contacts app.';
+      
+      // Return to previous page after a short delay
+      setTimeout(() => {
+        if (document.referrer) {
+          history.back();
+        }
+      }, 2000);
+    } else {
+      document.getElementById('status').textContent = 'Error: No contact data provided.';
+    }
+  </script>
+</body>
+</html>
